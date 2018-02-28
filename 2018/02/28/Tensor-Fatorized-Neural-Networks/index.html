@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Tensor,论文笔记," />
 
 
 
@@ -94,13 +94,30 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuning瞎说的地方">
-<meta property="og:url" content="https://ynqiu.top/index.html">
+<meta name="description" content="背景深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。 回顾张量Tucker分解模型： 我们知道，Tucker分解能够将一个$N$阶张量$\mathcal{X} \in \mathbb{R}^{J_1 \times J_2 \t">
+<meta name="keywords" content="Tensor,论文笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensor Factorized Neural Network 论文笔记">
+<meta property="og:url" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/index.html">
 <meta property="og:site_name" content="Yuning瞎说的地方">
+<meta property="og:description" content="背景深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。 回顾张量Tucker分解模型： 我们知道，Tucker分解能够将一个$N$阶张量$\mathcal{X} \in \mathbb{R}^{J_1 \times J_2 \t">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/扩展模型.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/张量分解与神经网络.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/连接层的图示.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/算法流程.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/CTFNN.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/训练损失.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/CNN卷积核参数确定.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/MNIST测试错误率.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/SVHN计算时间和测试错误率.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/CIFAR-10的计算时间和测试错误率.png">
+<meta property="og:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/IDIAP数据集的计算时间和测试错误率.png">
+<meta property="og:updated_time" content="2018-02-28T12:20:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuning瞎说的地方">
+<meta name="twitter:title" content="Tensor Factorized Neural Network 论文笔记">
+<meta name="twitter:description" content="背景深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。 回顾张量Tucker分解模型： 我们知道，Tucker分解能够将一个$N$阶张量$\mathcal{X} \in \mathbb{R}^{J_1 \times J_2 \t">
+<meta name="twitter:image" content="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/figs/扩展模型.png">
 
 
 
@@ -129,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="https://ynqiu.top/"/>
+  <link rel="canonical" href="https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/"/>
 
 
 
 
 
-  <title>Yuning瞎说的地方</title>
+  <title>Tensor Factorized Neural Network 论文笔记 | Yuning瞎说的地方</title>
   
 
 
@@ -160,9 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,9 +318,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -335,9 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/28/Tensor-Fatorized-Neural-Networks/" itemprop="url">Tensor Factorized Neural Network 论文笔记</a></h1>
+          <h1 class="post-title" itemprop="name headline">Tensor Factorized Neural Network 论文笔记</h1>
         
 
         <div class="post-meta">
@@ -431,9 +444,7 @@
       
 
       
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。</p>
 <h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>张量Tucker分解模型：</p>
 <p>我们知道，Tucker分解能够将一个$N$阶张量$\mathcal{X} \in \mathbb{R}^{J_1 \times J_2 \times \cdot \cdot \cdot J_N}$分解成一个核张量(core tensor)和$N$个因子矩阵(factor matrices)的形式，形如：<br>$$\mathcal{X} = \mathcal{A} \times_1 \mathbf{U}^{(1)} \times_2 \mathbf{U}^{(2)} \times_3 \cdot \cdot \cdot \times_N \mathbf{U}^{(N)}$$<br>也可以写成如下逐元素的形式：<br>$$<br>x_{i_1 i_2 … i_N} = \sum_{j_1 = 1}^{J_1} \sum_{j_2 = 1}^{J_2} \cdot \cdot \cdot \sum_{j_N = 1} ^{J_N} {a}_{j_1 j_2 \cdot \cdot \cdot j_N} u_{i_1 j_1}^{(1) } u_{i_2 j_2}^{(2)} \cdot \cdot \cdot u_{i_N j_N}^{(N)}<br>$$<br>如果我们写成逆的形式，Tucker分解可以写成：<br>$$<br>\mathcal{A} = \mathcal{X} \times_1 \mathbf{U}^{(1) \dagger} \times_2 \mathbf{U}^{(2) \dagger}  \times_3 \cdot \cdot \cdot \times_N  \mathbf{U}^{(N) \dagger}<br>$$<br>(3)给了我们一个启发，那就是张量$\mathcal{A}$可以看作是张量$\mathcal{X}$的一个压缩形式，或者我们也可以将它看作一个在不同维度都作了降维的特征张量。</p>
 <p>以上，便是这篇文章的中心思想。</p>
@@ -486,8 +497,6 @@
 </li>
 </ol>
 
-          
-        
       
     </div>
     
@@ -497,19 +506,51 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://ws1.sinaimg.cn/large/ad457653gy1fowe143fq4j205f05faag.jpg" alt="Yuning WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Tensor/" rel="tag"># Tensor</a>
+          
+            <a href="/tags/论文笔记/" rel="tag"># 论文笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -519,10 +560,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -530,6 +572,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -550,8 +603,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -637,6 +699,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾"><span class="nav-number">2.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立模型"><span class="nav-number">3.</span> <span class="nav-text">建立模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TFNN的由来"><span class="nav-number">3.1.</span> <span class="nav-text">TFNN的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TFNN前向计算过程"><span class="nav-number">3.2.</span> <span class="nav-text">TFNN前向计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算隐藏层神经单元"><span class="nav-number">3.2.1.</span> <span class="nav-text">计算隐藏层神经单元</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算输出层单元"><span class="nav-number">3.2.2.</span> <span class="nav-text">计算输出层单元</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TFNN反向传播计算过程"><span class="nav-number">3.3.</span> <span class="nav-text">TFNN反向传播计算过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程图"><span class="nav-number">3.4.</span> <span class="nav-text">算法流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CTFNN"><span class="nav-number">3.5.</span> <span class="nav-text">CTFNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验部分"><span class="nav-number">3.6.</span> <span class="nav-text">实验部分</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -750,10 +828,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -771,6 +849,18 @@
       <script id="dsq-count-scr" src="https://ynqiu.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://ynqiu.top/2018/02/28/Tensor-Fatorized-Neural-Networks/';
+          this.page.identifier = '2018/02/28/Tensor-Fatorized-Neural-Networks/';
+          this.page.title = 'Tensor Factorized Neural Network 论文笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ynqiu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
@@ -819,26 +909,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
