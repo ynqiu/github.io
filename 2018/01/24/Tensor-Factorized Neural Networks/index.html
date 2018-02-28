@@ -94,17 +94,29 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="Tensor-Factorized Neural Network (TFNN)##背景 深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。 回顾张量Tucker分解模型： 我们知道，Tucker分解能够将一个$N$阶张量$\ma">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://ynqiu.top/2018/02/28/hello-world/index.html">
+<meta property="og:title" content="Yuning瞎说的地方">
+<meta property="og:url" content="https://ynqiu.top/2018/01/24/Tensor-Factorized Neural Networks/index.html">
 <meta property="og:site_name" content="Yuning瞎说的地方">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Tensor-Factorized Neural Network (TFNN)##背景 深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。 回顾张量Tucker分解模型： 我们知道，Tucker分解能够将一个$N$阶张量$\ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-28T06:11:51.000Z">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/扩展模型.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/张量分解与神经网络.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/连接层的图示.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/算法流程.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/CTFNN.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/训练损失.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/CNN卷积核参数确定.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/MNIST测试错误率.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/SVHN计算时间和测试错误率.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/CIFAR-10的计算时间和测试错误率.png">
+<meta property="og:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/IDIAP数据集的计算时间和测试错误率.png">
+<meta property="og:updated_time" content="2018-01-25T06:28:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Yuning瞎说的地方">
+<meta name="twitter:description" content="Tensor-Factorized Neural Network (TFNN)##背景 深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。 回顾张量Tucker分解模型： 我们知道，Tucker分解能够将一个$N$阶张量$\ma">
+<meta name="twitter:image" content="https://ynqiu.top/2018/01/24/Tensor-Factorized%20Neural%20Networks/figs/扩展模型.png">
 
 
 
@@ -133,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="https://ynqiu.top/2018/02/28/hello-world/"/>
+  <link rel="canonical" href="https://ynqiu.top/2018/01/24/Tensor-Factorized Neural Networks/"/>
 
 
 
 
 
-  <title>Hello World | Yuning瞎说的地方</title>
+  <title> | Yuning瞎说的地方</title>
   
 
 
@@ -320,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/02/28/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/01/24/Tensor-Factorized Neural Networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuning">
@@ -337,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -349,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T14:11:51+08:00">
-                2018-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T22:08:23+08:00">
+                2018-01-24
               </time>
             
 
@@ -368,9 +380,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/28/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/24/Tensor-Factorized Neural Networks/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/28/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/24/Tensor-Factorized Neural Networks/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,15 +410,57 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="Tensor-Factorized-Neural-Network-TFNN"><a href="#Tensor-Factorized-Neural-Network-TFNN" class="headerlink" title="Tensor-Factorized Neural Network (TFNN)"></a>Tensor-Factorized Neural Network (TFNN)</h1><p>##背景</p>
+<p>深度学习模型虽然能够学习很多数据的抽象特征，但是现有的深度学习方法都是以向量作为输入的。向量化的操作使得很多多模态的数据损失了它们原有的结构信息。因此，作者认为，我们急需研究一种能够学习到高维度数据结构信息的深度学习模型。</p>
+<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>张量Tucker分解模型：</p>
+<p>我们知道，Tucker分解能够将一个$N$阶张量$\mathcal{X} \in \mathbb{R}^{J_1 \times J_2 \times \cdot \cdot \cdot J_N}$分解成一个核张量(core tensor)和$N$个因子矩阵(factor matrices)的形式，形如：<br>$$<br>\mathcal{X} = \mathcal{A} \times_1 \mathbf{U}^{(1)} \times_2 \mathbf{U}^{(2)} \times_3 \cdot \cdot \cdot \times_N \mathbf{U}^{(N)}<br>$$<br>也可以写成如下逐元素的形式：<br>$$<br>x_{i_1 i_2 … i_N} = \sum_{j_1 = 1}^{J_1} \sum_{j_2 = 1}^{J_2} \cdot \cdot \cdot \sum_{j_N = 1} ^{J_N} {a}_{j_1 j_2 \cdot \cdot \cdot j_N} u_{i_1 j_1}^{(1) } u_{i_2 j_2}^{(2)} \cdot \cdot \cdot u_{i_N j_N}^{(N)}<br>$$<br>如果我们写成逆的形式，Tucker分解可以写成：<br>$$<br>\mathcal{A} = \mathcal{X} \times_1 \mathbf{U}^{(1) \dagger} \times_2 \mathbf{U}^{(2) \dagger}  \times_3 \cdot \cdot \cdot \times_N  \mathbf{U}^{(N) \dagger}<br>$$<br>(3)给了我们一个启发，那就是张量$\mathcal{A}$可以看作是张量$\mathcal{X}$的一个压缩形式，或者我们也可以将它看作一个在不同维度都作了降维的特征张量。</p>
+<p>以上，便是这篇文章的中心思想。</p>
+<h2 id="建立模型"><a href="#建立模型" class="headerlink" title="建立模型"></a>建立模型</h2><h3 id="TFNN的由来"><a href="#TFNN的由来" class="headerlink" title="TFNN的由来"></a>TFNN的由来</h3><p>建立如下模型</p>
+<p><img src="figs/扩展模型.png" width="500px"></p>
+<p>上图中，(a)是上输入为向量时的神经网络模型(即MLP)，(b)为输入二维情况下(有区别于矩阵分解模型)，(c)为输入为三维的情况下。</p>
+<p>我们以三维数据输入为例子，我们可以得到张量Tucker分解和神经网络模型结合的形式：</p>
+<p><img src="figs/张量分解与神经网络.png" width="700px"></p>
+<p>模型前向运算步骤：</p>
+<ol>
+<li>随机化因子矩阵$\left { {\mathbf{U}^{(1)}},\mathbf{U}^{(2)},\mathbf{U}^{(3)} \right }$，并求取核张量$\mathcal{A}^{1}$；</li>
+<li>通过非线性激活函数$h(\cdot)$激活得到$\mathcal{Z}^{(1)}$;</li>
+<li>继续求取下一层;</li>
+<li>权重张量$\mathcal{W}$将最后一层张量映射到向量的形式，经过软最大化(softmax)后，得到预测标签$\mathbf{y}$.</li>
+</ol>
+<h3 id="TFNN前向计算过程"><a href="#TFNN前向计算过程" class="headerlink" title="TFNN前向计算过程"></a>TFNN前向计算过程</h3><p>分两种情况讨论，分别是隐藏层单元和输出层单元。</p>
+<h4 id="计算隐藏层神经单元"><a href="#计算隐藏层神经单元" class="headerlink" title="计算隐藏层神经单元"></a>计算隐藏层神经单元</h4><p>给出Tucker分解的形式：<br>$$<br>\mathcal{A}^{1}  = \mathcal{X} \times_1 \mathbf{U}^{(1)} \times_2 \mathbf{U}^{(2)} \times_3 \cdots \times_N \mathbf{U}^{(N)} \<br> = \sum_{i_1, i_2,…,i_N}{\mathcal{X}_{i_1,i_2,…,i_N} (\mathbf{u}_{i_1}^{(1)} \circ \mathbf{u}_{i_2}^{(2)} \circ \cdots \circ \mathbf{u}<em>{jN}^{(N)})}<br>$$<br>或者，对于逐元素而言，我们也可以给两个内积的形式：<br>$$<br>\mathcal{A}</em>{j_1 j_2 … j_N}^{1} = \langle \mathcal{X}, (\mathbf{u}_{i_1}^{(1)} \circ \mathbf{u}_{i_2}^{(2)} \circ \cdots \circ \mathbf{u}_{jN}^{(N)}) \rangle<br>$$<br>对于以上运算，我们可以用图进行如下表示：</p>
+<p><img src="figs/连接层的图示.png" width="500px"></p>
+<p>通过上图，我们可以发现，TFNN可以理解为一种高维模型的MLP，同样使用权重和输入作了内积后激活；但是有两点不同的是：1.这里的权重张量都是由三个矩阵(即$U^{(1)}, U^{(2)},U^{(3)}$)的行向量进行外积而构成；2.</p>
+<h4 id="计算输出层单元"><a href="#计算输出层单元" class="headerlink" title="计算输出层单元"></a>计算输出层单元</h4><p>对于最后一层，参数张量$\mathcal{W}$的参数不再进行权值共享，即不再有一系列$\mathbf{U}$矩阵的行向量来进行外积。并且如果我们有$C$个类别，那么也就有$C$个权重张量$\mathcal{W}$。因此，对于第$c$个输出$a_{c}^{\left { l \right }} = \langle \mathcal{W}<em>c, \mathcal{Z}^{ \left {l-1 \right } } \rangle$ 。通过软最大化，得到预测值：<br>$$<br>\mathbf{y}  = s(\mathbf{a}^{\left { l\right }}) = \frac{\text{exp}(\mathbf{a}^{\left {l \right }}) }{\sum</em>{c=1}^{C} \text{exp}(a_c^{ \left { l \right }})}<br>$$<br>对于整个两层张量分解网络而言，我们共有参数$\Theta = \left { \mathbf{U}^{(n)}, \mathbf{V}^{(n)}, \mathcal{W} \right }$。因此，对于交叉熵损失函数：<br>$$<br>E(\Theta) = - \sum_{c=1}^C r_c \ln y_c<br>$$</p>
+<h3 id="TFNN反向传播计算过程"><a href="#TFNN反向传播计算过程" class="headerlink" title="TFNN反向传播计算过程"></a>TFNN反向传播计算过程</h3><p>常规的链式法则与求导计算，这里不再提及。</p>
+<p>###算法流程图</p>
+<p><img src="figs/算法流程.png" width="600px"></p>
+<h3 id="CTFNN"><a href="#CTFNN" class="headerlink" title="CTFNN"></a>CTFNN</h3><p>作者认为，TFNN也可以推广到CNN网络，提出了Convolutional TFNN (CTFNN)。与TFNN类似，层与层的连接不再是一个全连接，而是一个局部连接。在CTFNN中，每一个局部的连接也可以用Tucker分解的形式来表示。如下图所示：</p>
+<p><img src="./figs/CTFNN.png" width="650px"></p>
+<p>对于每一个小的卷积核张量，</p>
+<h3 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h3><p>有几部分实验，分别是：</p>
+<ol>
+<li><p>MNIST训练时的损失：</p>
+<p><img src="./figs/训练损失.png" width="400px"></p>
+<p>其中(a)代表MLP的参数可视化，(b)代表TFNN的参数可视化。可以看出，(b)的参数更为稀疏。(c)代表训练过程的损失。</p>
+</li>
+<li><p>CNN卷积核大小等参数的确定</p>
+<p><img src="./figs/CNN卷积核参数确定.png" width="500px"></p>
+<p>其中两个权重矩阵的大小都为$4 \times 5$ . 为了比较的公平起见，作者选择的卷积核大小为$5\times 5$.</p>
+</li>
+<li><p>MNIST计算时间和测试错误率：</p>
+<p><img src="./figs/MNIST测试错误率.png" width="500px"></p>
+</li>
+<li><p>SVHN的计算时间和测试错误率：</p>
+<p><img src="./figs/SVHN计算时间和测试错误率.png" width="500px"></p>
+</li>
+<li><p>CIFAR-10的计算时间和测试错误率：</p>
+<p><img src="./figs/CIFAR-10的计算时间和测试错误率.png" width="500px"></p>
+</li>
+<li><p>IDIAP数据集的计算时间和测试错误率:</p>
+<p><img src="./figs/IDIAP数据集的计算时间和测试错误率.png" width="500px"></p>
+</li>
+</ol>
 
       
     </div>
@@ -455,18 +509,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/24/Tensor-Factorized Neural Networks/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/28/HelloWorldPost/" rel="prev" title="HelloWorldPost">
-                HelloWorldPost <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/28/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -623,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensor-Factorized-Neural-Network-TFNN"><span class="nav-number">1.</span> <span class="nav-text">Tensor-Factorized Neural Network (TFNN)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾"><span class="nav-number">1.1.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立模型"><span class="nav-number">1.2.</span> <span class="nav-text">建立模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TFNN的由来"><span class="nav-number">1.2.1.</span> <span class="nav-text">TFNN的由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TFNN前向计算过程"><span class="nav-number">1.2.2.</span> <span class="nav-text">TFNN前向计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算隐藏层神经单元"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">计算隐藏层神经单元</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算输出层单元"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">计算输出层单元</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TFNN反向传播计算过程"><span class="nav-number">1.2.3.</span> <span class="nav-text">TFNN反向传播计算过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CTFNN"><span class="nav-number">1.2.4.</span> <span class="nav-text">CTFNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验部分"><span class="nav-number">1.2.5.</span> <span class="nav-text">实验部分</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -766,9 +816,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://ynqiu.top/2018/02/28/hello-world/';
-          this.page.identifier = '2018/02/28/hello-world/';
-          this.page.title = 'Hello World';
+          this.page.url = 'https://ynqiu.top/2018/01/24/Tensor-Factorized Neural Networks/';
+          this.page.identifier = '2018/01/24/Tensor-Factorized Neural Networks/';
+          this.page.title = '';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ynqiu.disqus.com/embed.js';
