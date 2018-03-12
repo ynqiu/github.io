@@ -444,7 +444,7 @@
 <p>我们知道如果要最大化这个方差，只要使得$\alpha_1^T$无限大即可。于是我们开始给出对$\alpha_1^T$的限制：$\alpha_1^T\alpha_1 = 1$。由拉格朗日乘子法可得：</p>
 <p>$$\text{arg} ~ \max \limits_{\alpha_1^T}~ \alpha_1^T\text{cov}(XX^T)\alpha_1 - \lambda (\alpha_1^T \alpha_1 -1)$$</p>
 <p>令：<br>$$<br>L(\alpha_1^T,\lambda) = \alpha_1^T\text{cov}(XX^T)\alpha_1 - \lambda (\alpha_1^T \alpha_1 -1)<br>$$</p>
-<p>对$\alpha_1^T$求导令其偏导为零可得：<br>$$<br>\nabla_{\alpha_1^T}~L(\alpha_1^T,\lambda) = \text{cov}(XX^T)\alpha_1 - \lambda \alpha_1 = 0<br>$$<br>上式我们发现：<br>$$<br>\Sigma\alpha_1 = \lambda\alpha_1<br>$$<br>从此式可知，我们用来降维的$\alpha_1^T$就是==协方差==矩阵$\Sigma$的特征向量$\alpha_1$的转置。<br>但是此时我们仍然无法确定到底哪个特征向量才是我们想要的   </p>
+<p>对$\alpha_1^T$求导令其偏导为零可得：<br>$$<br>\nabla_{\alpha_1^T}~L(\alpha_1^T,\lambda) = \text{cov}(XX^T)\alpha_1 - \lambda \alpha_1 = 0<br>$$<br>上式我们发现：<br>$$<br>\Sigma\alpha_1 = \lambda\alpha_1<br>$$<br>从此式可知，我们用来降维的$\alpha_1^T$就是<strong>协方差</strong>矩阵$\Sigma$的特征向量$\alpha_1$的转置。<br>但是此时我们仍然无法确定到底哪个特征向量才是我们想要的   </p>
 <p>于是我们将上式左乘$\alpha_1^T$得：<br>$$<br>\alpha_1^T \text{cov}(XX^T) \alpha_1 - \lambda \alpha_1^T\alpha_1 = 0<br>$$<br>由于$\alpha_1^T\alpha_1 = 1$，因此：<br>$$\alpha_1^T\Sigma\alpha_1 - \lambda = 0    $$</p>
 <p>$$\lambda = \alpha_1\Sigma\alpha_1 = \text{Var}[\alpha_1^TX]$$<br>天作之合，我们发现如果要让降维后的那个向量方差最大，此时我们只要选取特征值$\lambda$对应的特征向量即可！</p>
 <p><strong>这只是一个向量而已</strong>，我们需要很多个$\alpha$来组成一个降维矩阵，那么此时$\alpha_2^T$又是怎样求得的呢？  </p>
