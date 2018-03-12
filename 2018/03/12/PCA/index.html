@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="机器学习," />
 
 
 
@@ -94,17 +94,18 @@
 
 
 
-<meta name="description" content="title: PCA学习date: 2018-03-12 12:56:57tags:   机器学习categories:  机器学习   问题一：用PCA算法得到的这个合适的降维空间是什么？    首先给出如下定义：    $X$是一个矩阵，它有m行n列，每一行代表一个样本 $\alpha_k^{T}$是一个行向量 降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$">
+<meta name="description" content="问题一：用PCA算法得到的这个合适的降维空间是什么？    首先给出如下定义：    $X$是一个矩阵，它有m行n列，每一行代表一个样本 $\alpha_k^{T}$是一个行向量 降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$   降维后的数据$\hat{X}{i,:}$和$\hat{X}{j,:}$两个向量线性无关 $X$是一个去均值的矩阵，即$\bar{\mu">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yuning的后花园">
+<meta property="og:title" content="深入浅出PCA(最优化观点)">
 <meta property="og:url" content="https://ynqiu.top/2018/03/12/PCA/index.html">
 <meta property="og:site_name" content="Yuning的后花园">
-<meta property="og:description" content="title: PCA学习date: 2018-03-12 12:56:57tags:   机器学习categories:  机器学习   问题一：用PCA算法得到的这个合适的降维空间是什么？    首先给出如下定义：    $X$是一个矩阵，它有m行n列，每一行代表一个样本 $\alpha_k^{T}$是一个行向量 降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$">
+<meta property="og:description" content="问题一：用PCA算法得到的这个合适的降维空间是什么？    首先给出如下定义：    $X$是一个矩阵，它有m行n列，每一行代表一个样本 $\alpha_k^{T}$是一个行向量 降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$   降维后的数据$\hat{X}{i,:}$和$\hat{X}{j,:}$两个向量线性无关 $X$是一个去均值的矩阵，即$\bar{\mu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-12T05:20:41.000Z">
+<meta property="og:updated_time" content="2018-03-12T05:28:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuning的后花园">
-<meta name="twitter:description" content="title: PCA学习date: 2018-03-12 12:56:57tags:   机器学习categories:  机器学习   问题一：用PCA算法得到的这个合适的降维空间是什么？    首先给出如下定义：    $X$是一个矩阵，它有m行n列，每一行代表一个样本 $\alpha_k^{T}$是一个行向量 降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$">
+<meta name="twitter:title" content="深入浅出PCA(最优化观点)">
+<meta name="twitter:description" content="问题一：用PCA算法得到的这个合适的降维空间是什么？    首先给出如下定义：    $X$是一个矩阵，它有m行n列，每一行代表一个样本 $\alpha_k^{T}$是一个行向量 降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$   降维后的数据$\hat{X}{i,:}$和$\hat{X}{j,:}$两个向量线性无关 $X$是一个去均值的矩阵，即$\bar{\mu">
 
 
 
@@ -139,7 +140,7 @@
 
 
 
-  <title> | Yuning的后花园</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>深入浅出PCA(最优化观点) | Yuning的后花园</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -337,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">深入浅出PCA(最优化观点)</h1>
         
 
         <div class="post-meta">
@@ -349,7 +350,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T12:56:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T13:22:39+08:00">
                 2018-03-12
               </time>
             
@@ -359,6 +360,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -398,14 +421,7 @@
       
 
       
-        <hr>
-<p>title: PCA学习<br>date: 2018-03-12 12:56:57<br>tags: </p>
-<ul>
-<li>机器学习<br>categories: </li>
-<li>机器学习</li>
-</ul>
-<hr>
-<p>问题一：用PCA算法得到的这个合适的降维空间是什么？   </p>
+        <p>问题一：用PCA算法得到的这个合适的降维空间是什么？   </p>
 <p><strong>首先给出如下定义</strong>：  </p>
 <ol>
 <li>$X$是一个矩阵，它有m行n列，每一行代表一个样本</li>
@@ -432,7 +448,7 @@
 <ol>
 <li>由于$\Sigma$是协方差矩阵，所以它的特征向量有如下性质 $\alpha_2^T \alpha_1 =0$。  </li>
 </ol>
-<p>同样地，我们定义拉格朗日函数如下：<br>$$\text{arg} \max \limits_{\alpha_2^T} ~ \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 \alpha_2^T \alpha_2 - \phi \alpha_2^T \alpha_1 $$<br>定义：<br>$$L(\alpha_2^T,\lambda_2,\phi) = \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 \alpha_2^T \alpha_2 - \phi \alpha_2^T \alpha_1 $$</p>
+<p>同样地，我们定义拉格朗日函数如下：<br>$$\text{arg} \max \limits_{\alpha_2^T} ~ \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 (\alpha_2^T \alpha_2-1) - \phi \alpha_2^T \alpha_1 $$<br>定义：<br>$$L(\alpha_2^T,\lambda_2,\phi) = \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 (\alpha_2^T \alpha_2-1) - \phi \alpha_2^T \alpha_1 $$</p>
 <p>对$\alpha_2^T$求偏导并令其为0可得：<br>$$\nabla_{\alpha_2^T} ~ L(\alpha_2^T,\lambda_2,\phi) = \text{cov}(XX^T)\alpha_2 - \lambda_2\alpha_2 - \phi \alpha_1= 0 $$<br>$\alpha_1^T$得：<br>$$\alpha_1^T\text{cov}(XX^T)\alpha_2 - 0 - \phi = 0$$</p>
 
       
@@ -478,7 +494,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://ynqiu.top/2018/03/12/PCA/" title="">https://ynqiu.top/2018/03/12/PCA/</a>
+    <a href="https://ynqiu.top/2018/03/12/PCA/" title="深入浅出PCA(最优化观点)">https://ynqiu.top/2018/03/12/PCA/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -490,6 +506,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
       
 
       
@@ -509,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/12/PCA-1/" rel="prev" title="PCA">
-                PCA <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,7 +605,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -598,7 +616,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -609,7 +627,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -797,7 +815,7 @@
         var disqus_config = function () {
           this.page.url = 'https://ynqiu.top/2018/03/12/PCA/';
           this.page.identifier = '2018/03/12/PCA/';
-          this.page.title = '';
+          this.page.title = '深入浅出PCA(最优化观点)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ynqiu.disqus.com/embed.js';
