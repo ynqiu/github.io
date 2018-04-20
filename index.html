@@ -426,7 +426,7 @@
         
           
             <h3 id="PCA的核方法"><a href="#PCA的核方法" class="headerlink" title="PCA的核方法"></a>PCA的核方法</h3><p>仍然是给定一个数据矩阵$X\in R^{n\times m}$，认为每一列是一个样本。</p>
-<p>前面有篇博文讲到PCA的求解过程，并且结果也显示了PCA的主成分PCs是实对称矩阵$XX^T$的最大特征值对应的特征向量。即我们如果有一个Gram矩阵$G = XX^T = US^2 U^T$，这个矩阵的特征向量是$U$和特征值是$S^2$。</p>
+<p>前面有篇<a href="https://ynqiu.github.io/2018/03/12/PCA/" target="_blank" rel="noopener">博文</a>讲到PCA的求解过程，并且结果也显示了PCA的主成分PCs是实对称矩阵$XX^T$的最大特征值对应的特征向量。即我们如果有一个Gram矩阵$G = XX^T = US^2 U^T$，这个矩阵的特征向量是$U$和特征值是$S^2$。</p>
 <p>对于Kernel PCA而言，我们不给出求解的过程。即我们沿用上述的结论，即设计矩阵(design matrix)组成的实对称矩阵的最大特征值对应的特征向量就是我们的核主要成分(kernel principle components)。求解的步骤可以写成：</p>
 <ol>
 <li><p>选择一个核函数$k(x_i, x_j)$，并且这个核函数得到的是一个标量（如果这是一个线性核函数，那么这个函数就是欧几里得空间的内积，即$&lt;x_i ^T, x_j&gt;$）</p>
