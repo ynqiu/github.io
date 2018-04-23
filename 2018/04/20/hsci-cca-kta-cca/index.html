@@ -94,16 +94,17 @@
 
 
 
-<meta name="description" content="一个交流、学习的平台">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuning写字的地方">
-<meta property="og:url" content="https://ynqiu.top/archives/2018/02/index.html">
+<meta name="description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hsciCCA和ktaCCA">
+<meta property="og:url" content="https://ynqiu.top/2018/04/20/hsci-cca-kta-cca/index.html">
 <meta property="og:site_name" content="Yuning写字的地方">
-<meta property="og:description" content="一个交流、学习的平台">
+<meta property="og:description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-23T03:26:15.188Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuning写字的地方">
-<meta name="twitter:description" content="一个交流、学习的平台">
+<meta name="twitter:title" content="hsciCCA和ktaCCA">
+<meta name="twitter:description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://ynqiu.top/archives/2018/02/"/>
+  <link rel="canonical" href="https://ynqiu.top/2018/04/20/hsci-cca-kta-cca/"/>
 
 
 
 
 
-  <title>归档 | Yuning写字的地方</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>hsciCCA和ktaCCA | Yuning写字的地方</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -163,7 +164,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -305,111 +306,198 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 10 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/04/20/hsci-cca-kta-cca/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuning">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuning写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/28/how-to-build-hexo-blog/" itemprop="url">
-              
-                <span itemprop="name">如何建立Hexo博客</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">hsciCCA和ktaCCA</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T21:37:54+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T16:22:52+08:00">
+                2018-04-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/20/hsci-cca-kta-cca/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/20/hsci-cca-kta-cca/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/28/Tensor-Fatorized-Neural-Networks/" itemprop="url">
-              
-                <span itemprop="name">Tensor Factorized Neural Network 论文笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T19:49:39+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h3 id="hsicCCA和ktaCCA"><a href="#hsicCCA和ktaCCA" class="headerlink" title="hsicCCA和ktaCCA"></a>hsicCCA和ktaCCA</h3><p>我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信息量最大，即希望它的协方差矩阵最大。因此，降维准则不同，最后的结果也是非常不同。因此，CCA和PCA两者的应用也应该完全不同。至于PCA和CCA的解释和代码，可以看我之前的博客(<a href="https://ynqiu.github.io/2018/03/12/PCA/" target="_blank" rel="noopener">PCA</a>，<a href="https://ynqiu.github.io/2018/04/13/understanding-cca/" target="_blank" rel="noopener">CCA</a>)。</p>
+<p>我们都知道，CCA衡量的是两个降维后向量的线性相关性。即，如果$u^T x$和$v^T y$是线性相关的，他们的相关系数就最大，为1。如果$u^T x$和$v^T y$ 不是线性相关的，即垂直，那么他们的相关系数为0。</p>
+<p>然而，现实生活中，数据呈现的却不总是线性相关的。因此，有人提出了Kernel CCA (kCCA)，但是kCCA有两个缺点：1. 直觉性的缺失；2. 缺乏鲁棒性。因此，这篇博文介绍两个非线性的CCA方法，分别是hsicCCA和ktaCCA，其中他们分别采用了希尔伯特空间独立性准则和？？？（中文是？）。这篇博文的两个方法源于ICML2013的论文 Canonical Correlation Analysis based on Hilbert-Schmidt<br>Independence Criterion and Centered Kernel Target Alignment。</p>
+<h3 id="非线性的表示的方法"><a href="#非线性的表示的方法" class="headerlink" title="非线性的表示的方法"></a>非线性的表示的方法</h3><p>如果要求解两随机变量的非线性CCA，kCCA的方法比较简单。即，首先将输入的随机变量使用非线性函数$f$和$g$转换，然后最大化$f(\mu^T x)$和$g(v^T y)$之间的关联性。这个非线性函数$f$和$g$需要自己寻找，可以是一般的非线性函数、还可以是神经网络。因此，这两个非线性转换函数$f$和$g$会对kCCA的结果产生极大的影响。</p>
+<h4 id="kCCA"><a href="#kCCA" class="headerlink" title="kCCA"></a>kCCA</h4><p>定义kCCA如下：<br>$$<br>\max _{\alpha \beta \in R^N} \frac{\alpha ^T }{}<br>$$</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的支持是本人创作的最大动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://ws1.sinaimg.cn/large/ad457653gy1fowe143fq4j205f05faag.jpg" alt="Yuning WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Yuning
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://ynqiu.top/2018/04/20/hsci-cca-kta-cca/" title="hsciCCA和ktaCCA">https://ynqiu.top/2018/04/20/hsci-cca-kta-cca/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/20/kernel-pca/" rel="next" title="Kernel PCA- PCA的核方法-Python代码">
+                <i class="fa fa-chevron-left"></i> Kernel PCA- PCA的核方法-Python代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -417,6 +505,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -437,8 +536,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/favicon.png"
@@ -524,6 +632,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hsicCCA和ktaCCA"><span class="nav-number">1.</span> <span class="nav-text">hsicCCA和ktaCCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非线性的表示的方法"><span class="nav-number">2.</span> <span class="nav-text">非线性的表示的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kCCA"><span class="nav-number">2.1.</span> <span class="nav-text">kCCA</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -637,11 +761,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -660,6 +782,18 @@
       <script id="dsq-count-scr" src="https://ynqiu.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://ynqiu.top/2018/04/20/hsci-cca-kta-cca/';
+          this.page.identifier = '2018/04/20/hsci-cca-kta-cca/';
+          this.page.title = 'hsciCCA和ktaCCA';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ynqiu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="https://i.loli.net/2018/04/16/5ad48fd23d442.png 前言许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博">
+<meta name="description" content="前言许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博客在上两周就已经成文，但是一直没有整理好发出来。其实到现在这篇博客也还没有完整！主要体现在实验部">
 <meta name="keywords" content="机器学习,统计学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CCA算法-原理-python代码分析">
 <meta property="og:url" content="https://ynqiu.top/2018/04/13/understanding-cca/index.html">
 <meta property="og:site_name" content="Yuning写字的地方">
-<meta property="og:description" content="https://i.loli.net/2018/04/16/5ad48fd23d442.png 前言许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博">
+<meta property="og:description" content="前言许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博客在上两周就已经成文，但是一直没有整理好发出来。其实到现在这篇博客也还没有完整！主要体现在实验部">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ynqiu.top/figs/output_14_0.png">
 <meta property="og:image" content="https://ynqiu.top/figs/output_16_1.png">
@@ -109,10 +109,10 @@
 <meta property="og:image" content="https://ynqiu.top/figs/output_25_0.png">
 <meta property="og:image" content="https://ynqiu.top/figs/output_27_1.png">
 <meta property="og:image" content="https://ynqiu.top/figs/output_29_1.png">
-<meta property="og:updated_time" content="2018-04-16T11:58:20.493Z">
+<meta property="og:updated_time" content="2018-04-23T03:29:00.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCA算法-原理-python代码分析">
-<meta name="twitter:description" content="https://i.loli.net/2018/04/16/5ad48fd23d442.png 前言许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博">
+<meta name="twitter:description" content="前言许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博客在上两周就已经成文，但是一直没有整理好发出来。其实到现在这篇博客也还没有完整！主要体现在实验部">
 <meta name="twitter:image" content="https://ynqiu.top/figs/output_14_0.png">
 
 
@@ -429,8 +429,7 @@
       
 
       
-        <p><a href="https://i.loli.net/2018/04/16/5ad48fd23d442.png" target="_blank" rel="noopener">https://i.loli.net/2018/04/16/5ad48fd23d442.png</a></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博客在上两周就已经成文，但是一直没有整理好发出来。其实到现在这篇博客也<strong>还没有完整</strong>！主要体现在实验部分。因为我暂时找不到可视化分离出来的特征的方法。之后想到的话，此文会继续更新。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>许久未更博客。最近开始未来三年的课题，也就是博士毕业课题。上一周清明假期提前一天回来，连续7天呆在实验室，最后几天感到斗志开始有点消沉，便空出时间让自己放松身心，因此便找时间更新了一遍博客。CCA算法在做特征分离上应用颇为广泛，如盲信号分离等。近期想在这上面继续做点文章，便开始对它展开了研究。这篇博客在上两周就已经成文，但是一直没有整理好发出来。其实到现在这篇博客也<strong>还没有完整</strong>！主要体现在实验部分。因为我暂时找不到可视化分离出来的特征的方法。之后想到的话，此文会继续更新。</p>
 <h3 id="协方差与协方差矩阵"><a href="#协方差与协方差矩阵" class="headerlink" title="协方差与协方差矩阵"></a>协方差与协方差矩阵</h3><p>由协方差定义可得：<br>$$C = \frac{1}{N-1} \sum_{i=1}^{N}{(X - \mu_x)(Y-\mu_y)}$$<br>如果有多个随机变量，如$X$，$Y$和$Z$，那么我们就要引入协方差矩阵的定义：<br>$$<br>\left [<br>  \begin{matrix}<br>   Cov(X,X) &amp; Cov(X,Y) &amp; Cov(X,Z) \<br>   Cov(Y,X) &amp; Cov(Y,Y) &amp; Cov(Y,Z) \<br>   Cov(Z,X) &amp; Cov(Z,Y) &amp; Cov(Z,Z)<br>  \end{matrix} \right ] \tag{1}<br>$$</p>
 <p>OK，下面开始验证我们的理论。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">X = np.array([[<span class="number">-2.1</span>,<span class="number">-1</span>,<span class="number">4.3</span>],[<span class="number">3</span>,<span class="number">1.1</span>,<span class="number">0.12</span>],[<span class="number">3</span>,<span class="number">1.1</span>,<span class="number">0.12</span>]])</span><br><span class="line"><span class="comment">#每一行代表一个随机变量，每列代表随机变量的值。注意这里和Matlab的定义不同，Matlab定义的cov是</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'X=\n'</span>, X,<span class="string">'\n'</span>)</span><br><span class="line">print(<span class="string">'np.cov(X) = \n'</span>, np.cov(X))</span><br></pre></td></tr></table></figure>
@@ -706,7 +705,7 @@ yz=
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
