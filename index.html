@@ -407,7 +407,19 @@
 <p>我们都知道，CCA衡量的是两个降维后向量的线性相关性。即，如果$u^T x$和$v^T y$是线性相关的，他们的相关系数就最大，为1。如果$u^T x$和$v^T y$ 不是线性相关的，即垂直，那么他们的相关系数为0。</p>
 <p>然而，现实生活中，数据呈现的却不总是线性相关的。因此，有人提出了Kernel CCA (kCCA)，但是kCCA有两个缺点：1. 直觉性的缺失；2. 缺乏鲁棒性。因此，这篇博文介绍两个非线性的CCA方法，分别是hsicCCA和ktaCCA，其中他们分别采用了希尔伯特空间独立性准则和？？？（中文是？）。这篇博文的两个方法源于ICML2013的论文 Canonical Correlation Analysis based on Hilbert-Schmidt<br>Independence Criterion and Centered Kernel Target Alignment。</p>
 <h3 id="非线性的表示的方法"><a href="#非线性的表示的方法" class="headerlink" title="非线性的表示的方法"></a>非线性的表示的方法</h3><p>如果要求解两随机变量的非线性CCA，kCCA的方法比较简单。即，首先将输入的随机变量使用非线性函数$f$和$g$转换，然后最大化$f(\mu^T x)$和$g(v^T y)$之间的关联性。这个非线性函数$f$和$g$需要自己寻找，可以是一般的非线性函数、还可以是神经网络。因此，这两个非线性转换函数$f$和$g$会对kCCA的结果产生极大的影响。</p>
-<h4 id="kCCA"><a href="#kCCA" class="headerlink" title="kCCA"></a>kCCA</h4><p>定义kCCA如下：<br>$$<br>\max _{\alpha \beta \in R^N} \frac{\alpha ^T }{}<br>$$</p>
+<h4 id="kCCA"><a href="#kCCA" class="headerlink" title="kCCA"></a>kCCA</h4><p>定义kCCA如下：<br>$$<br>\max _{\alpha \beta \in R^N} \frac{\alpha ^T \tilde{K}_x \tilde{K}_y \beta}{\sqrt{\alpha^T (\tilde{K} - \eta I)^2\alpha \beta^T (\tilde{K}_y - \eta I)^2 \beta}}<br>$$<br>其中$K_x (i,j) = k_x (x_i, x_j), K_y (i,j) = k_y (y_i, y_j)$，这里的$k_x(x_i, x_j), k_y(y_i, y_j)$ 分别$\mathbb{H}_x, \mathbb{H}_y$ 空间的内积函数。</p>
+<p>并且$K^2 = K^T K$，$\eta$是正则项参数，$\tilde{K}$是$K$的中心化Gram矩阵。$K_{i,j}$可以通过如下方式计算：</p>
+<p>$$<br>\tilde{K} (i,j) = K_{i,j} - \frac{1}{N} \sum_{i=1}^{N}K_{i,j} - \frac{1}{N}\sum_{j=1}^{N}K_{i,j} + \frac{1}{N^2} \sum_{i=1}^{N} \sum_{j=1}^{N} K_{i,j}<br>$$<br>和CCA相似，上面kCCA的解法是一个泛化的最大特征值问题。然而，刚刚也提到过，kCCA并不是一个好的方法，因为它对$\eta$非常敏感，另一方面求解特征值分解是一个计算量非常大的问题。</p>
+<h4 id="HSIC和KTA"><a href="#HSIC和KTA" class="headerlink" title="HSIC和KTA"></a>HSIC和KTA</h4><p>下面我们来介绍这两个非线性准则。这两个非线性准则相对kCCA有两个好处，一方面并不需要进行特征值的求解；另一方面不需要谨慎地选择正则化参数。</p>
+<h5 id="HSIC"><a href="#HSIC" class="headerlink" title="HSIC"></a>HSIC</h5><p>对于两个希尔伯特空间，$\mathbb{H}_x$和$\mathbb{H}_y$，HSIC实质上是两个随机变量$x$和$y$的交叉协方差(cross-covariance)的范数的平方。即：</p>
+<p>$$\rho_{h} = \frac{1}{(N -1 )^2} tr(K_x \tilde{K}_y)$$</p>
+<p>其中，$\tilde{K}_y = K - 1_n K_y  - K_y 1_n + 1_n K_y 1_n = (I - 1_n) K_y (I - 1_n)$。其中$1_n =\frac{1}{n} ee^T \in R^{n \times n}$</p>
+<h5 id="HSIC和DCCA"><a href="#HSIC和DCCA" class="headerlink" title="HSIC和DCCA"></a>HSIC和DCCA</h5><p>实际上，上式就是一个泛化的DCCA。假设这里的核函数是一个线性的内积函数，那么可以得到：<br>$$<br>K^u  = X u u^T X^T<br>$$</p>
+<p>$$<br>K^v = Y vv^T Y^T<br>$$</p>
+<p>代入(3)式，可以得到：<br>$$<br>\rho_h (u, v ) = \frac{1}{(N-1)^2} {trac}(Xuu^TX^T Yvv^T Y^T - Xuu^T X^T 1_n Y vv^T Y^T - Xuu^TX Yvv^TY^T 1_n + Xuu^TX^T 1_n Yvv^TY^T 1_n)<br>$$</p>
+<p>化简得到：<br>$$<br>\rho_h (u,v) = \frac{1}{(N-1)^2} (N-1)^2 {trac}(Xu u^T X^T Y vv^T Y^T) = (u^T X^T Yv v^T Y^T X u) = (u^T X^T Yv)^2<br>$$<br>其中$||u|| = ||v|| = 1$。</p>
+<p>上式，也是DCCA的损失函数表达式。也就是说，hsicCCA是一个向高维空间泛化的DCCA。</p>
+<h5 id="KTA和CCA"><a href="#KTA和CCA" class="headerlink" title="KTA和CCA"></a>KTA和CCA</h5><p>如果给定ktaCCA的衡量准则，那么我们可以得到ktaCCA如下形式：<br>$$<br>\rho_a (u,v) = \frac{tr(K^u \tilde{K}^v)}{\sqrt{tr(K^u \tilde{K}^u) tr(K^v \tilde{K}^v)}}<br>$$<br>其中$||u || = ||v|| = 1$。如果使用线性核函数，上述等式等同于CCA损失函数的平方形式。沿用上面的一些结论，得到：<br>$$<br>\rho _a (u,v) = \frac{(u^T X^T Yv)^2}{(u^T X^T X u) (v^T Y^T Y v)}<br>$$<br>因此，我们得到ktaCCA实际上是一个向高维空间泛化的CCA模型。</p>
 
           
         
