@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Yuning写字的地方">
 <meta property="og:description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T08:26:13.932Z">
+<meta property="og:updated_time" content="2018-04-24T15:18:23.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hsciCCA和ktaCCA">
 <meta name="twitter:description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
@@ -408,14 +408,16 @@
 <h4 id="HSIC和KTA"><a href="#HSIC和KTA" class="headerlink" title="HSIC和KTA"></a>HSIC和KTA</h4><p>下面我们来介绍这两个非线性准则。这两个非线性准则相对kCCA有两个好处，一方面并不需要进行特征值的求解；另一方面不需要谨慎地选择正则化参数。</p>
 <h5 id="HSIC"><a href="#HSIC" class="headerlink" title="HSIC"></a>HSIC</h5><p>对于两个希尔伯特空间，$\mathbb{H}_x$和$\mathbb{H}_y$，HSIC实质上是两个随机变量$x$和$y$的交叉协方差(cross-covariance)的范数的平方。即：</p>
 <p>$$\rho_{h} = \frac{1}{(N -1 )^2} tr(K_x \tilde{K}_y)$$</p>
-<p>其中，$\tilde{K}_y = K - 1_n K_y  - K_y 1_n + 1_n K_y 1_n = (I - 1_n) K_y (I - 1_n)$。其中$1_n =\frac{1}{n} ee^T \in R^{n \times n}$</p>
-<h5 id="KTA"><a href="#KTA" class="headerlink" title="KTA"></a>KTA</h5><p>kta准则</p>
+<p>其中，$\tilde{K}_y = K - 1_n K_y  - K_y 1_n + 1_n K_y 1_n = (I - 1_n) K_y (I - 1_n)$。其中$1_n =\frac{1}{n} ee^T \in R^{n \times n}$。HSIC在实际应用中，比较常用在核的独立性检验上。</p>
+<h5 id="KTA"><a href="#KTA" class="headerlink" title="KTA"></a>KTA</h5><p>kta准则使用以下衡量：<br>$$<br>\rho_a = \frac{tr(K_x \tilde{K}_y)}{\sqrt{tr(K_x \tilde{K}_x) tr(K_y \tilde{K}_y)}}<br>$$<br>相比HSIC，KTA更像是一个正则化了的HSIC。但是在实际应用中，KTA主要用在核函数的选择和核函数的学习上。</p>
+<h4 id="基于HSIC和KTA的CCA"><a href="#基于HSIC和KTA的CCA" class="headerlink" title="基于HSIC和KTA的CCA"></a>基于HSIC和KTA的CCA</h4><p>基于以上两种准则的CCA</p>
 <h5 id="HSIC和DCCA"><a href="#HSIC和DCCA" class="headerlink" title="HSIC和DCCA"></a>HSIC和DCCA</h5><p>实际上，上式就是一个泛化的DCCA。假设这里的核函数是一个线性的内积函数，那么可以得到：<br>$$<br>K^u  = X u u^T X^T<br>$$</p>
 <p>$$<br>K^v = Y vv^T Y^T<br>$$</p>
 <p>代入(3)式，可以得到：<br>$$<br>\rho_h (u, v ) = \frac{1}{(N-1)^2} {trac}(Xuu^TX^T Yvv^T Y^T - Xuu^T X^T 1_n Y vv^T Y^T - Xuu^TX Yvv^TY^T 1_n + Xuu^TX^T 1_n Yvv^TY^T 1_n)<br>$$</p>
-<p>化简得到：<br>$$<br>\rho_h (u,v) = \frac{1}{(N-1)^2} (N-1)^2 {trac}(Xu u^T X^T Y vv^T Y^T) = (u^T X^T Yv v^T Y^T X u) = (u^T X^T Yv)^2<br>$$<br>其中$||u|| = ||v|| = 1$。</p>
+<p>化简得到：<br>$$<br>\rho_h (u,v) = \frac{1}{(N-1)^2} (N-1)^2 {trac}(Xu u^T X^T Y vv^T Y^T) = (u^T X^T Yv v^T Y^T X u) = (u^T X^T Yv)^2<br>$$<br>其中$||u|| = ||v|| = 1​$。</p>
 <p>上式，也是DCCA的损失函数表达式。也就是说，hsicCCA是一个向高维空间泛化的DCCA。</p>
 <h5 id="KTA和CCA"><a href="#KTA和CCA" class="headerlink" title="KTA和CCA"></a>KTA和CCA</h5><p>如果给定ktaCCA的衡量准则，那么我们可以得到ktaCCA如下形式：<br>$$<br>\rho_a (u,v) = \frac{tr(K^u \tilde{K}^v)}{\sqrt{tr(K^u \tilde{K}^u) tr(K^v \tilde{K}^v)}}<br>$$<br>其中$||u || = ||v|| = 1$。如果使用线性核函数，上述等式等同于CCA损失函数的平方形式。沿用上面的一些结论，得到：<br>$$<br>\rho _a (u,v) = \frac{(u^T X^T Yv)^2}{(u^T X^T X u) (v^T Y^T Y v)}<br>$$<br>因此，我们得到ktaCCA实际上是一个向高维空间泛化的CCA模型。</p>
+<h3 id="模型估计（优化）"><a href="#模型估计（优化）" class="headerlink" title="模型估计（优化）"></a>模型估计（优化）</h3><p>上面已经描述了如何建立非线性的CCA模型，并从理论上阐述了这两个模型的优点。下面我们要来看一下这两个非线性的模型如何优化。</p>
 
       
     </div>
@@ -491,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/pgm2png/" rel="prev" title="pgm2png">
+                pgm2png <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -574,7 +580,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +591,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -655,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hsicCCA和ktaCCA"><span class="nav-number">1.</span> <span class="nav-text">hsicCCA和ktaCCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非线性的表示的方法"><span class="nav-number">2.</span> <span class="nav-text">非线性的表示的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kCCA"><span class="nav-number">2.1.</span> <span class="nav-text">kCCA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HSIC和KTA"><span class="nav-number">2.2.</span> <span class="nav-text">HSIC和KTA</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC"><span class="nav-number">2.2.1.</span> <span class="nav-text">HSIC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA"><span class="nav-number">2.2.2.</span> <span class="nav-text">KTA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC和DCCA"><span class="nav-number">2.2.3.</span> <span class="nav-text">HSIC和DCCA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA和CCA"><span class="nav-number">2.2.4.</span> <span class="nav-text">KTA和CCA</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hsicCCA和ktaCCA"><span class="nav-number">1.</span> <span class="nav-text">hsicCCA和ktaCCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非线性的表示的方法"><span class="nav-number">2.</span> <span class="nav-text">非线性的表示的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kCCA"><span class="nav-number">2.1.</span> <span class="nav-text">kCCA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HSIC和KTA"><span class="nav-number">2.2.</span> <span class="nav-text">HSIC和KTA</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC"><span class="nav-number">2.2.1.</span> <span class="nav-text">HSIC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA"><span class="nav-number">2.2.2.</span> <span class="nav-text">KTA</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于HSIC和KTA的CCA"><span class="nav-number">2.3.</span> <span class="nav-text">基于HSIC和KTA的CCA</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC和DCCA"><span class="nav-number">2.3.1.</span> <span class="nav-text">HSIC和DCCA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA和CCA"><span class="nav-number">2.3.2.</span> <span class="nav-text">KTA和CCA</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型估计（优化）"><span class="nav-number">3.</span> <span class="nav-text">模型估计（优化）</span></a></li></ol></div>
             
 
           </div>
