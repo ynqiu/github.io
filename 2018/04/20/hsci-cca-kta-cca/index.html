@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Yuning写字的地方">
 <meta property="og:description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T08:21:32.249Z">
+<meta property="og:updated_time" content="2018-04-23T08:26:13.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hsciCCA和ktaCCA">
 <meta name="twitter:description" content="hsicCCA和ktaCCA我们知道，CCA可以通过最大化随机变量$x$和$y$的相关系数来找到$x$和$y$关联性最强的部分，比如说如果测试的数据集是一个多视角的数据集(multi-view data)。我们的目的就是找到一个投影矩阵，使得投影后的$u^T x$和$v^T y$关联性最强。在这里不得不提一下，CCA的降维准则是非常直观的，当然PCA也是，但是PCA希望找到降维后的数据矩阵包含的信">
@@ -409,6 +409,7 @@
 <h5 id="HSIC"><a href="#HSIC" class="headerlink" title="HSIC"></a>HSIC</h5><p>对于两个希尔伯特空间，$\mathbb{H}_x$和$\mathbb{H}_y$，HSIC实质上是两个随机变量$x$和$y$的交叉协方差(cross-covariance)的范数的平方。即：</p>
 <p>$$\rho_{h} = \frac{1}{(N -1 )^2} tr(K_x \tilde{K}_y)$$</p>
 <p>其中，$\tilde{K}_y = K - 1_n K_y  - K_y 1_n + 1_n K_y 1_n = (I - 1_n) K_y (I - 1_n)$。其中$1_n =\frac{1}{n} ee^T \in R^{n \times n}$</p>
+<h5 id="KTA"><a href="#KTA" class="headerlink" title="KTA"></a>KTA</h5><p>kta准则</p>
 <h5 id="HSIC和DCCA"><a href="#HSIC和DCCA" class="headerlink" title="HSIC和DCCA"></a>HSIC和DCCA</h5><p>实际上，上式就是一个泛化的DCCA。假设这里的核函数是一个线性的内积函数，那么可以得到：<br>$$<br>K^u  = X u u^T X^T<br>$$</p>
 <p>$$<br>K^v = Y vv^T Y^T<br>$$</p>
 <p>代入(3)式，可以得到：<br>$$<br>\rho_h (u, v ) = \frac{1}{(N-1)^2} {trac}(Xuu^TX^T Yvv^T Y^T - Xuu^T X^T 1_n Y vv^T Y^T - Xuu^TX Yvv^TY^T 1_n + Xuu^TX^T 1_n Yvv^TY^T 1_n)<br>$$</p>
@@ -654,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hsicCCA和ktaCCA"><span class="nav-number">1.</span> <span class="nav-text">hsicCCA和ktaCCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非线性的表示的方法"><span class="nav-number">2.</span> <span class="nav-text">非线性的表示的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kCCA"><span class="nav-number">2.1.</span> <span class="nav-text">kCCA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HSIC和KTA"><span class="nav-number">2.2.</span> <span class="nav-text">HSIC和KTA</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC"><span class="nav-number">2.2.1.</span> <span class="nav-text">HSIC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC和DCCA"><span class="nav-number">2.2.2.</span> <span class="nav-text">HSIC和DCCA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA和CCA"><span class="nav-number">2.2.3.</span> <span class="nav-text">KTA和CCA</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hsicCCA和ktaCCA"><span class="nav-number">1.</span> <span class="nav-text">hsicCCA和ktaCCA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非线性的表示的方法"><span class="nav-number">2.</span> <span class="nav-text">非线性的表示的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#kCCA"><span class="nav-number">2.1.</span> <span class="nav-text">kCCA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HSIC和KTA"><span class="nav-number">2.2.</span> <span class="nav-text">HSIC和KTA</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC"><span class="nav-number">2.2.1.</span> <span class="nav-text">HSIC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA"><span class="nav-number">2.2.2.</span> <span class="nav-text">KTA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HSIC和DCCA"><span class="nav-number">2.2.3.</span> <span class="nav-text">HSIC和DCCA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#KTA和CCA"><span class="nav-number">2.2.4.</span> <span class="nav-text">KTA和CCA</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -414,6 +414,7 @@
 <h5 id="HSIC"><a href="#HSIC" class="headerlink" title="HSIC"></a>HSIC</h5><p>对于两个希尔伯特空间，$\mathbb{H}_x$和$\mathbb{H}_y$，HSIC实质上是两个随机变量$x$和$y$的交叉协方差(cross-covariance)的范数的平方。即：</p>
 <p>$$\rho_{h} = \frac{1}{(N -1 )^2} tr(K_x \tilde{K}_y)$$</p>
 <p>其中，$\tilde{K}_y = K - 1_n K_y  - K_y 1_n + 1_n K_y 1_n = (I - 1_n) K_y (I - 1_n)$。其中$1_n =\frac{1}{n} ee^T \in R^{n \times n}$</p>
+<h5 id="KTA"><a href="#KTA" class="headerlink" title="KTA"></a>KTA</h5><p>kta准则</p>
 <h5 id="HSIC和DCCA"><a href="#HSIC和DCCA" class="headerlink" title="HSIC和DCCA"></a>HSIC和DCCA</h5><p>实际上，上式就是一个泛化的DCCA。假设这里的核函数是一个线性的内积函数，那么可以得到：<br>$$<br>K^u  = X u u^T X^T<br>$$</p>
 <p>$$<br>K^v = Y vv^T Y^T<br>$$</p>
 <p>代入(3)式，可以得到：<br>$$<br>\rho_h (u, v ) = \frac{1}{(N-1)^2} {trac}(Xuu^TX^T Yvv^T Y^T - Xuu^T X^T 1_n Y vv^T Y^T - Xuu^TX Yvv^TY^T 1_n + Xuu^TX^T 1_n Yvv^TY^T 1_n)<br>$$</p>
