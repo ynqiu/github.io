@@ -321,6 +321,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/08/28/vnc-time-out/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuning">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuning写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/28/vnc-time-out/" itemprop="url">vnc too many security failures 问题及解决方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T10:08:21+08:00">
+                2018-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/28/vnc-time-out/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/28/vnc-time-out/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="打开VNC时遇到”too-many-security-failures”"><a href="#打开VNC时遇到”too-many-security-failures”" class="headerlink" title="打开VNC时遇到”too many security failures”"></a>打开VNC时遇到”too many security failures”</h3><p>有时很久没有VNC，打开时会提示错误的指令”too many security failures”而无法打开。这种情况一般而言，我们可以直接kill掉这个VNC，但是如果kill掉这个VNC，那么这个虚拟桌面未保存的工作也将会失去。</p>
+<p>经过网上的搜索，发现这是因为VNC将”0.0.0.0”加入和黑名单的名列，所以此时只要禁止VNC使用黑名单即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncconfig -display :5 -set BlacklistTimeout=0 -set BlacklistThreshold=1000000</span><br></pre></td></tr></table></figure>
+<p>这里的”5”是指我的VNC端口是5。如果你的是其他端口，可以设置成对应的端口号。</p>
+<p>然后重新连接VNC就可以啦！你会发现上次未保存的工作仍然还在的！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/05/16/python-proxies-download/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1843,161 +1978,6 @@ yz=
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/03/01/World-Tensor-Lab/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yuning">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/favicon.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuning写字的地方">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/01/World-Tensor-Lab/" itemprop="url">国内外张量学习研究团队整理--不定期更新</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T16:26:43+08:00">
-                2018-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/研究相关/" itemprop="url" rel="index">
-                    <span itemprop="name">研究相关</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/01/World-Tensor-Lab/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/01/World-Tensor-Lab/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>近年来，国内外对于张量的研究逐渐变得非常火热。本人老板也是圈子中的一人，在张量分解领域也是深耕多年。发现老板2016年回国任职后对于研究的有心无力状况，本人也是感到非常可惜。眼看自己已经研究生二年级，下半年就要进入Phd学习阶段，自己对于张量研究头绪还是非常的混乱。因为无论从事哪一个课题的研究，最后老板可能都不太能够帮得了我（尴尬！）。引用<a href="https://www.zhihu.com/question/28036803/answer/39218633" target="_blank" rel="noopener">知乎</a>的一个回答，缺乏老师的指引，博士生要另立门户，开辟自己的研究方向将是非常困难的事情(毕竟博士只有3年的时间)。</p>
-<p>因此，这也是本人立此文的原因。一方面为自己整理张量分解在各个实验室的研究成果，为自己的科研铺路；另一方面，籍此机会，结合老板熟悉的方向寻找博士期间的研究方向。</p>
-<h3 id="西安交通大学孟德宇"><a href="#西安交通大学孟德宇" class="headerlink" title="西安交通大学孟德宇"></a>西安交通大学孟德宇</h3><p><a href="http://gr.xjtu.edu.cn/web/dymeng" target="_blank" rel="noopener">孟德宇</a>老师的实验室，在Tensor Spasity方面研究颇为深入，发表了众多领域内非常高质量的文章，并且在主页给出了大部分文章的实验代码。因此，如果从事Tensor RPCA的研究，可以看下这个实验室的研究成果。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2048,7 +2028,7 @@ yz=
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

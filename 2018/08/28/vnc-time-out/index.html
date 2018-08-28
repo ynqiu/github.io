@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="一个交流、学习的平台">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuning写字的地方">
-<meta property="og:url" content="https://ynqiu.top/archives/2018/02/index.html">
+<meta name="description" content="打开VNC时遇到”too many security failures”有时很久没有VNC，打开时会提示错误的指令”too many security failures”而无法打开。这种情况一般而言，我们可以直接kill掉这个VNC，但是如果kill掉这个VNC，那么这个虚拟桌面未保存的工作也将会失去。 经过网上的搜索，发现这是因为VNC将”0.0.0.0”加入和黑名单的名列，所以此时只要禁止VN">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vnc too many security failures 问题及解决方法">
+<meta property="og:url" content="https://ynqiu.top/2018/08/28/vnc-time-out/index.html">
 <meta property="og:site_name" content="Yuning写字的地方">
-<meta property="og:description" content="一个交流、学习的平台">
+<meta property="og:description" content="打开VNC时遇到”too many security failures”有时很久没有VNC，打开时会提示错误的指令”too many security failures”而无法打开。这种情况一般而言，我们可以直接kill掉这个VNC，但是如果kill掉这个VNC，那么这个虚拟桌面未保存的工作也将会失去。 经过网上的搜索，发现这是因为VNC将”0.0.0.0”加入和黑名单的名列，所以此时只要禁止VN">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-28T02:17:19.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuning写字的地方">
-<meta name="twitter:description" content="一个交流、学习的平台">
+<meta name="twitter:title" content="vnc too many security failures 问题及解决方法">
+<meta name="twitter:description" content="打开VNC时遇到”too many security failures”有时很久没有VNC，打开时会提示错误的指令”too many security failures”而无法打开。这种情况一般而言，我们可以直接kill掉这个VNC，但是如果kill掉这个VNC，那么这个虚拟桌面未保存的工作也将会失去。 经过网上的搜索，发现这是因为VNC将”0.0.0.0”加入和黑名单的名列，所以此时只要禁止VN">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://ynqiu.top/archives/2018/02/"/>
+  <link rel="canonical" href="https://ynqiu.top/2018/08/28/vnc-time-out/"/>
 
 
 
 
 
-  <title>归档 | Yuning写字的地方</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>vnc too many security failures 问题及解决方法 | Yuning写字的地方</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -163,7 +165,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -305,111 +307,204 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 13 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/08/28/vnc-time-out/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuning">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuning写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/28/how-to-build-hexo-blog/" itemprop="url">
-              
-                <span itemprop="name">如何建立Hexo博客</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">vnc too many security failures 问题及解决方法</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T21:37:54+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T10:08:21+08:00">
+                2018-08-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/28/vnc-time-out/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/28/vnc-time-out/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/28/Tensor-Fatorized-Neural-Networks/" itemprop="url">
-              
-                <span itemprop="name">Tensor Factorized Neural Network 论文笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T19:49:39+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h3 id="打开VNC时遇到”too-many-security-failures”"><a href="#打开VNC时遇到”too-many-security-failures”" class="headerlink" title="打开VNC时遇到”too many security failures”"></a>打开VNC时遇到”too many security failures”</h3><p>有时很久没有VNC，打开时会提示错误的指令”too many security failures”而无法打开。这种情况一般而言，我们可以直接kill掉这个VNC，但是如果kill掉这个VNC，那么这个虚拟桌面未保存的工作也将会失去。</p>
+<p>经过网上的搜索，发现这是因为VNC将”0.0.0.0”加入和黑名单的名列，所以此时只要禁止VNC使用黑名单即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncconfig -display :5 -set BlacklistTimeout=0 -set BlacklistThreshold=1000000</span><br></pre></td></tr></table></figure>
+<p>这里的”5”是指我的VNC端口是5。如果你的是其他端口，可以设置成对应的端口号。</p>
+<p>然后重新连接VNC就可以啦！你会发现上次未保存的工作仍然还在的！</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的支持是本人创作的最大动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://ws1.sinaimg.cn/large/ad457653gy1fowe143fq4j205f05faag.jpg" alt="Yuning WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Yuning
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://ynqiu.top/2018/08/28/vnc-time-out/" title="vnc too many security failures 问题及解决方法">https://ynqiu.top/2018/08/28/vnc-time-out/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/16/python-proxies-download/" rel="next" title="Python使用Socks5代理爬取被墙的图片">
+                <i class="fa fa-chevron-left"></i> Python使用Socks5代理爬取被墙的图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -417,6 +512,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -437,8 +543,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/favicon.png"
@@ -524,6 +639,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开VNC时遇到”too-many-security-failures”"><span class="nav-number">1.</span> <span class="nav-text">打开VNC时遇到”too many security failures”</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -637,11 +768,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -660,6 +789,18 @@
       <script id="dsq-count-scr" src="https://ynqiu.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://ynqiu.top/2018/08/28/vnc-time-out/';
+          this.page.identifier = '2018/08/28/vnc-time-out/';
+          this.page.title = 'vnc too many security failures 问题及解决方法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ynqiu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
