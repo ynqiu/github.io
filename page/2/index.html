@@ -96,13 +96,13 @@
 
 <meta name="description" content="一个交流、学习的平台">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Yuning写字的地方">
+<meta property="og:title" content="三亩竹林">
 <meta property="og:url" content="https://ynqiu.top/page/2/index.html">
-<meta property="og:site_name" content="Yuning写字的地方">
+<meta property="og:site_name" content="三亩竹林">
 <meta property="og:description" content="一个交流、学习的平台">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuning写字的地方">
+<meta name="twitter:title" content="三亩竹林">
 <meta name="twitter:description" content="一个交流、学习的平台">
 
 
@@ -138,7 +138,7 @@
 
 
 
-  <title>Yuning写字的地方</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>三亩竹林</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -176,7 +176,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Yuning写字的地方</span>
+        <span class="site-title">三亩竹林</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -321,6 +321,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/03/09/ubuntu-ftp-server-setup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuning">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="三亩竹林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/09/ubuntu-ftp-server-setup/" itemprop="url">Ubuntu16的FTP服务器创建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-09T10:55:16+08:00">
+                2018-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/09/ubuntu-ftp-server-setup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/09/ubuntu-ftp-server-setup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>实验室的深度学习服务器一直在服役，随着实验室的队伍越来越强大，大家学习交流的频率越来越高，一些资料的共享需求就逐渐产生。因此，借助于现有的Linux服务器，我打算在此基础上搭建一个FTP服务器，让大家的数据共享更方便。</p>
+<h3 id="创建一个FTP专用的新用户"><a href="#创建一个FTP专用的新用户" class="headerlink" title="创建一个FTP专用的新用户"></a>创建一个FTP专用的新用户</h3><p>使用<code>adduser</code>创建一个用户，它会要求你输入密码。由于这个用户平时是不登录的，所以需要设置关闭用户登录权限。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo adduser ftp</span><br><span class="line"><span class="meta">#</span> 输入密码</span><br><span class="line"><span class="meta">$</span> sudo usermod -s /sbin/nologin ftp</span><br></pre></td></tr></table></figure></p>
+<p>然后测试一下是否禁用登录成功<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh ftp@ your ip address</span><br></pre></td></tr></table></figure></p>
+<p>如果禁用成功，你不断输入正确的密码它也会提示你密码错误。当然此时，你发现如果你打开ftp，你也登录不进去ftp的，所以要在<code>/etc/shells</code>最后一行添加如下内容。</p>
+<p>然后打开<code>/etc/shells</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo vi /etc/shells</span><br><span class="line"><span class="meta">#</span> 在/etc/shells最后一行添加 `/usr/sbin/nologin`</span><br></pre></td></tr></table></figure>
+<p>然后就可以实现在ftp登录该用户，但是无法在ssh登录了。</p>
+<h3 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h3><p>在完成用户创建之后，我们要安装vsftp客户端。Ubuntu16系统下，安装方式如下。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure></p>
+<h3 id="编辑vsftpd-conf"><a href="#编辑vsftpd-conf" class="headerlink" title="编辑vsftpd.conf"></a>编辑vsftpd.conf</h3><p>在这里，我们最头痛的问题就是<code>vsftpd.conf</code>。对配置文件进行编辑之前，我们首先要对自己的需求有一个清晰的了解。比如我的需求是：</p>
+<ol>
+<li>每个内网的人都可以匿名登录；</li>
+<li>每个登录的人都可以下载文件、上传文件和创建目录；</li>
+<li>除了管理员，其他人都不可以对文件进行删除等动作；<br>根据以上的三点需求，我开始对探索<code>vsftpd.conf</code>，我的配置方案如下，如果需求和我相同的可以直接搬用<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">listen=NO</span><br><span class="line">listen_ipv6=YES</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 是否允许匿名用户登录</span><br><span class="line">anonymous_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 是否允许本地用户登录</span><br><span class="line">local_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> ftp的根目录</span><br><span class="line">local_root=/home/ftp/share</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 是否允许匿名用户写入</span><br><span class="line">write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 是否允许匿名用户上传</span><br><span class="line">anon_upload_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 是否允许匿名用户创建目录</span><br><span class="line">anon_mkdir_write_enable=NO</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 匿名用户上传或创建文件的权限。如果是022，那么这些文件或者目录的权限就是755.</span><br><span class="line">anon_umask=022</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 是否允许匿名用户有其他的写入权限（即除了创建和权限外的删除权限，更改文件名的权限等）</span><br><span class="line">anon_other_write_enable=YES</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 禁止删除的权限</span><br><span class="line">cmds_denied=DELE,RMD</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>###遇到问题</p>
+<ol>
+<li>500 OOPS错误，权限不够的问题<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">状态: 	正在连接 10.23.13.130:21...</span><br><span class="line">状态: 	连接建立，等待欢迎消息...</span><br><span class="line">状态: 	不安全的服务器，不支持 FTP over TLS。</span><br><span class="line">命令: 	USER anonymous</span><br><span class="line">响应: 	331 Please specify the password.</span><br><span class="line">命令: 	PASS *********************</span><br><span class="line">响应: 	500 OOPS: vsftpd: refusing to run with writable root inside chroot()</span><br><span class="line">错误: 	严重错误: 无法连接到服务器</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>解决方法：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo chmod a-w /home/ftp</span><br></pre></td></tr></table></figure></p>
+<p>再登录即可。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/03/01/World-Tensor-Lab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -330,7 +504,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuning写字的地方">
+      <meta itemprop="name" content="三亩竹林">
     </span>
 
     
@@ -485,7 +659,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuning写字的地方">
+      <meta itemprop="name" content="三亩竹林">
     </span>
 
     
@@ -621,7 +795,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuning写字的地方">
+      <meta itemprop="name" content="三亩竹林">
     </span>
 
     
@@ -864,7 +1038,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
