@@ -321,6 +321,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/03/12/PCA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuning">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/favicon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="三亩竹林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/12/PCA/" itemprop="url">PCA主成分分析-最大方差和最小二乘观点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T13:22:39+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/12/PCA/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/12/PCA/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="最小二乘方法角度"><a href="#最小二乘方法角度" class="headerlink" title="最小二乘方法角度"></a>最小二乘方法角度</h3><p>我们认为，如果要寻找数据的低维结构，一般会将数据投影到一个超平面，然后保证投影后的数据和原来数据的差别最小。那么这种差别最小是怎么衡量的呢？</p>
+<p>最极端的情况：</p>
+<p>如果向量$x_i$投影后的向量和自身重合，那么差别为零。</p>
+<p>如果向量$x_i$投影后的向量和自身垂直，那么差别最大。</p>
+<p>上述两条，我们的标准是，向量$x_i$到超平面的距离来衡量。这种衡量方式也是我们最常用的方式，可以写成如下形式：<br>$$<br>\arg \min \sum_{i} || x_i - \hat{x}_i||_2^2<br>$$</p>
+<p>而这里的$\hat{x}_i$又可以表示为</p>
+<p>$$ \hat{x}_i =\sum_j  w_j^T x_i w_j  $$</p>
+<p>这里$w_j^T x_i$为$x_i$在超平面的基$w_j$的投影长度，$w_j$为单位向量，且$w_j^T w_k = 0,~j \neq k$。</p>
+<p>其中，$\hat{x}_i x_i = \sum_j (w_j^T x_i)^T w_j^T x_i = \sum_j w_j^T x_i x_i^T w_j$</p>
+<p>其中，$\hat{x}_i^T \hat{x}_i = \sum_j w_j^T (w_j^T x_i)^T \sum_j (w_j^T x_i) w_j = \sum_j w_j^T x_i x_i ^T w_j$ </p>
+<p>于是，式(2)可以表示为：<br>$$<br>\arg \min_{w_j} \sum_i ( - \sum_j w_j^T x_i x_i^T w_j) \rightarrow \arg\max_{w_j} \sum_i \sum_j w_j^T  x_i x_i^T w_j ~ s.t.~W^TW = I<br>$$<br>式(3)可以继续表示为:<br>$$<br>\arg \max_{w_j}  = \sum_j w_j^T XX^T w_j  = \arg \max _{W} \text{tr}(W^T XX^T W)  ~~\text{s.t.}W^T W = I<br>$$<br>为了不失一般性，我们设$d=2$，利用拉格朗日乘子法求解，得下式：<br>$$<br>L(w_1,w_2) =  w_1^T XX^T w_1 + w_2XX^Tw_2 + \lambda_{11}(1 - w_1^T w_1) + \lambda_{22} (1 - w_2^T w_2) + \lambda_{12} w_1^T w_2 + \lambda_{21} w_2^T w_1<br>$$<br>首先对$w_1$求导得：<br>$$<br>\frac{\partial L}{\partial w_1} = 2XX^T w_1 -2  \lambda_{11} w_1 + \lambda_{12} w_2 + \lambda_{21} w_2<br>$$<br>观察发现$w_1$ 和$w_2$是正交的，所以我们肯定有：<br>$$<br>\lambda_{12} + \lambda_{21} = 0<br>$$</p>
+<p>$$<br>2XX^T w_1 - 2 \lambda_{11} w_1 = 0<br>$$</p>
+<p>求解上式可得，恰恰是一个求解特征值的问题。如果我们的$X$是去中心化的，那么可以引出下面信息论的角度。</p>
+<h3 id="信息论的角度"><a href="#信息论的角度" class="headerlink" title="信息论的角度"></a>信息论的角度</h3><p>问题一：用PCA算法得到的这个合适的降维空间是什么？   </p>
+<p><strong>首先给出如下定义</strong>：  </p>
+<ol>
+<li>$X$是一个矩阵，它有m行n列，每一列代表一个样本</li>
+<li>$\alpha_k^{T}$是一个行向量</li>
+<li>降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$  </li>
+<li>降维后的数据$\hat{X}<em>{i,:}$和$\hat{X}</em>{j,:}$两个向量线性无关</li>
+<li>$X$是一个去均值的矩阵，即$\bar{\mu}<em>j = \frac{1}{N}\sum</em>{i=1}^{N}{X_{i,j}}  = 0$</li>
+<li>定义协方差矩阵 $\Sigma = \text{cov}(XX^T)$</li>
+</ol>
+<p><strong>然后计算$\alpha_1^T$</strong></p>
+<ol>
+<li>首先计算降维后的方差$\text{Var} [\alpha_1^TX] $</li>
+<li>然后给出约束$\alpha_1^T \alpha_1 =1$的条件下，最大化降维后的方差   </li>
+</ol>
+<p>$$\text{Var}[\alpha_1^TX] = \alpha_1^T~\text{cov}(XX^T)~\alpha_1$$</p>
+<p>我们知道如果要最大化这个方差，只要使得$\alpha_1^T$无限大即可。于是我们开始给出对$\alpha_1^T$的限制：$\alpha_1^T\alpha_1 = 1$。由拉格朗日乘子法可得：</p>
+<p>$$\text{arg} ~ \max \limits_{\alpha_1^T}~ \alpha_1^T\text{cov}(XX^T)\alpha_1 - \lambda (\alpha_1^T \alpha_1 -1)$$</p>
+<p>令：<br>$$<br>L(\alpha_1^T,\lambda) = \alpha_1^T\text{cov}(XX^T)\alpha_1 - \lambda (\alpha_1^T \alpha_1 -1)<br>$$</p>
+<p>对$\alpha_1^T$求导令其偏导为零可得：<br>$$<br>\nabla_{\alpha_1^T}~L(\alpha_1^T,\lambda) = \text{cov}(XX^T)\alpha_1 - \lambda \alpha_1 = 0<br>$$<br>上式我们发现：<br>$$<br>\Sigma\alpha_1 = \lambda\alpha_1<br>$$<br>从此式可知，我们用来降维的$\alpha_1^T$就是<strong>协方差</strong>矩阵$\Sigma$的特征向量$\alpha_1$的转置。<br>但是此时我们仍然无法确定到底哪个特征向量才是我们想要的   </p>
+<p>于是我们将上式左乘$\alpha_1^T$得：<br>$$<br>\alpha_1^T \text{cov}(XX^T) \alpha_1 - \lambda \alpha_1^T\alpha_1 = 0<br>$$<br>由于$\alpha_1^T\alpha_1 = 1$，因此：<br>$$\alpha_1^T\Sigma\alpha_1 - \lambda = 0    $$</p>
+<p>$$\lambda = \alpha_1\Sigma\alpha_1 = \text{Var}[\alpha_1^TX]$$<br>天作之合，我们发现如果要让降维后的那个向量方差最大，此时我们只要选取特征值$\lambda$对应的特征向量即可！</p>
+<p><strong>这只是一个向量而已</strong>，我们需要很多个$\alpha$来组成一个降维矩阵，那么此时$\alpha_2^T$又是怎样求得的呢？  </p>
+<p><strong>定义</strong></p>
+<ol>
+<li>由于$\Sigma$是协方差矩阵，所以它的特征向量有如下性质 $\alpha_2^T \alpha_1 =0$。  </li>
+</ol>
+<p>同样地，我们定义拉格朗日函数如下：<br>$$\text{arg} \max \limits_{\alpha_2^T} ~ \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 (\alpha_2^T \alpha_2-1) - \phi \alpha_2^T \alpha_1 $$<br>定义：<br>$$L(\alpha_2^T,\lambda_2,\phi) = \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 (\alpha_2^T \alpha_2-1) - \phi \alpha_2^T \alpha_1 $$</p>
+<p>对$\alpha_2^T$求偏导并令其为0可得：<br>$$\nabla_{\alpha_2^T} ~ L(\alpha_2^T,\lambda_2,\phi) = \text{cov}(XX^T)\alpha_2 - \lambda_2\alpha_2 - \phi \alpha_1= 0 $$<br>$\alpha_1^T$得：<br>$$\alpha_1^T\text{cov}(XX^T)\alpha_2 - 0 - \phi = 0$$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/03/09/ubuntu-ftp-server-setup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1038,7 +1232,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1049,7 +1243,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1060,7 +1254,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

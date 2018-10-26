@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器学习," />
+  <meta name="keywords" content="月计,心路历程," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="最小二乘方法角度我们认为，如果要寻找数据的低维结构，一般会将数据投影到一个超平面，然后保证投影后的数据和原来数据的差别最小。那么这种差别最小是怎么衡量的呢？ 最极端的情况： 如果向量$x_i$投影后的向量和自身重合，那么差别为零。 如果向量$x_i$投影后的向量和自身垂直，那么差别最大。 上述两条，我们的标准是，向量$x_i$到超平面的距离来衡量。这种衡量方式也是我们最常用的方式，可以写成如下形式">
-<meta name="keywords" content="机器学习">
+<meta name="description" content="终于赢来了博士开学。硕博连读确定后的第9个月，我迎来了新的生活。这9个月，生活起起伏伏。 搞科研可以说，在硕博连读之前，我真的还没有真正地入门科研。 之所以这么说，是因为我研一积累得太少，以至于未曾体会真正科研的乐趣与痛苦。 当对一件事物的主观感受不是发自你内心时，说明你的生活并不是你的。 当别人告诉你，科研是多么地有趣。你进来时才发现大家都在水论文。 毕业前段时间韦德准备退役了，发布了一个直击人">
+<meta name="keywords" content="月计,心路历程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PCA主成分分析-最大方差和最小二乘观点">
-<meta property="og:url" content="https://ynqiu.top/2018/03/12/PCA/index.html">
+<meta property="og:title" content="博士的第一个月">
+<meta property="og:url" content="https://ynqiu.top/2018/09/27/daily-in-september/index.html">
 <meta property="og:site_name" content="三亩竹林">
-<meta property="og:description" content="最小二乘方法角度我们认为，如果要寻找数据的低维结构，一般会将数据投影到一个超平面，然后保证投影后的数据和原来数据的差别最小。那么这种差别最小是怎么衡量的呢？ 最极端的情况： 如果向量$x_i$投影后的向量和自身重合，那么差别为零。 如果向量$x_i$投影后的向量和自身垂直，那么差别最大。 上述两条，我们的标准是，向量$x_i$到超平面的距离来衡量。这种衡量方式也是我们最常用的方式，可以写成如下形式">
+<meta property="og:description" content="终于赢来了博士开学。硕博连读确定后的第9个月，我迎来了新的生活。这9个月，生活起起伏伏。 搞科研可以说，在硕博连读之前，我真的还没有真正地入门科研。 之所以这么说，是因为我研一积累得太少，以至于未曾体会真正科研的乐趣与痛苦。 当对一件事物的主观感受不是发自你内心时，说明你的生活并不是你的。 当别人告诉你，科研是多么地有趣。你进来时才发现大家都在水论文。 毕业前段时间韦德准备退役了，发布了一个直击人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-18T06:06:47.973Z">
+<meta property="og:updated_time" content="2018-10-12T02:39:57.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PCA主成分分析-最大方差和最小二乘观点">
-<meta name="twitter:description" content="最小二乘方法角度我们认为，如果要寻找数据的低维结构，一般会将数据投影到一个超平面，然后保证投影后的数据和原来数据的差别最小。那么这种差别最小是怎么衡量的呢？ 最极端的情况： 如果向量$x_i$投影后的向量和自身重合，那么差别为零。 如果向量$x_i$投影后的向量和自身垂直，那么差别最大。 上述两条，我们的标准是，向量$x_i$到超平面的距离来衡量。这种衡量方式也是我们最常用的方式，可以写成如下形式">
+<meta name="twitter:title" content="博士的第一个月">
+<meta name="twitter:description" content="终于赢来了博士开学。硕博连读确定后的第9个月，我迎来了新的生活。这9个月，生活起起伏伏。 搞科研可以说，在硕博连读之前，我真的还没有真正地入门科研。 之所以这么说，是因为我研一积累得太少，以至于未曾体会真正科研的乐趣与痛苦。 当对一件事物的主观感受不是发自你内心时，说明你的生活并不是你的。 当别人告诉你，科研是多么地有趣。你进来时才发现大家都在水论文。 毕业前段时间韦德准备退役了，发布了一个直击人">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://ynqiu.top/2018/03/12/PCA/"/>
+  <link rel="canonical" href="https://ynqiu.top/2018/09/27/daily-in-september/"/>
 
 
 
 
 
-  <title>PCA主成分分析-最大方差和最小二乘观点 | 三亩竹林</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>博士的第一个月 | 三亩竹林</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/03/12/PCA/">
+    <link itemprop="mainEntityOfPage" href="https://ynqiu.top/2018/09/27/daily-in-september/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuning">
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PCA主成分分析-最大方差和最小二乘观点</h1>
+          <h1 class="post-title" itemprop="name headline">博士的第一个月</h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T13:22:39+08:00">
-                2018-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T14:42:54+08:00">
+                2018-09-27
               </time>
             
 
@@ -373,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/博士月记/" itemprop="url" rel="index">
+                    <span itemprop="name">博士月记</span>
                   </a>
                 </span>
 
@@ -391,9 +391,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/12/PCA/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/27/daily-in-september/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/12/PCA/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/27/daily-in-september/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,48 +421,19 @@
       
 
       
-        <h3 id="最小二乘方法角度"><a href="#最小二乘方法角度" class="headerlink" title="最小二乘方法角度"></a>最小二乘方法角度</h3><p>我们认为，如果要寻找数据的低维结构，一般会将数据投影到一个超平面，然后保证投影后的数据和原来数据的差别最小。那么这种差别最小是怎么衡量的呢？</p>
-<p>最极端的情况：</p>
-<p>如果向量$x_i$投影后的向量和自身重合，那么差别为零。</p>
-<p>如果向量$x_i$投影后的向量和自身垂直，那么差别最大。</p>
-<p>上述两条，我们的标准是，向量$x_i$到超平面的距离来衡量。这种衡量方式也是我们最常用的方式，可以写成如下形式：<br>$$<br>\arg \min \sum_{i} || x_i - \hat{x}_i||_2^2<br>$$</p>
-<p>而这里的$\hat{x}_i$又可以表示为</p>
-<p>$$ \hat{x}_i =\sum_j  w_j^T x_i w_j  $$</p>
-<p>这里$w_j^T x_i$为$x_i$在超平面的基$w_j$的投影长度，$w_j$为单位向量，且$w_j^T w_k = 0,~j \neq k$。</p>
-<p>其中，$\hat{x}_i x_i = \sum_j (w_j^T x_i)^T w_j^T x_i = \sum_j w_j^T x_i x_i^T w_j$</p>
-<p>其中，$\hat{x}_i^T \hat{x}_i = \sum_j w_j^T (w_j^T x_i)^T \sum_j (w_j^T x_i) w_j = \sum_j w_j^T x_i x_i ^T w_j$ </p>
-<p>于是，式(2)可以表示为：<br>$$<br>\arg \min_{w_j} \sum_i ( - \sum_j w_j^T x_i x_i^T w_j) \rightarrow \arg\max_{w_j} \sum_i \sum_j w_j^T  x_i x_i^T w_j ~ s.t.~W^TW = I<br>$$<br>式(3)可以继续表示为:<br>$$<br>\arg \max_{w_j}  = \sum_j w_j^T XX^T w_j  = \arg \max _{W} \text{tr}(W^T XX^T W)  ~~\text{s.t.}W^T W = I<br>$$<br>为了不失一般性，我们设$d=2$，利用拉格朗日乘子法求解，得下式：<br>$$<br>L(w_1,w_2) =  w_1^T XX^T w_1 + w_2XX^Tw_2 + \lambda_{11}(1 - w_1^T w_1) + \lambda_{22} (1 - w_2^T w_2) + \lambda_{12} w_1^T w_2 + \lambda_{21} w_2^T w_1<br>$$<br>首先对$w_1$求导得：<br>$$<br>\frac{\partial L}{\partial w_1} = 2XX^T w_1 -2  \lambda_{11} w_1 + \lambda_{12} w_2 + \lambda_{21} w_2<br>$$<br>观察发现$w_1$ 和$w_2$是正交的，所以我们肯定有：<br>$$<br>\lambda_{12} + \lambda_{21} = 0<br>$$</p>
-<p>$$<br>2XX^T w_1 - 2 \lambda_{11} w_1 = 0<br>$$</p>
-<p>求解上式可得，恰恰是一个求解特征值的问题。如果我们的$X$是去中心化的，那么可以引出下面信息论的角度。</p>
-<h3 id="信息论的角度"><a href="#信息论的角度" class="headerlink" title="信息论的角度"></a>信息论的角度</h3><p>问题一：用PCA算法得到的这个合适的降维空间是什么？   </p>
-<p><strong>首先给出如下定义</strong>：  </p>
-<ol>
-<li>$X$是一个矩阵，它有m行n列，每一列代表一个样本</li>
-<li>$\alpha_k^{T}$是一个行向量</li>
-<li>降维后的数据可以表示为$\hat{X}_{i,:} = \alpha_k^TX$  </li>
-<li>降维后的数据$\hat{X}<em>{i,:}$和$\hat{X}</em>{j,:}$两个向量线性无关</li>
-<li>$X$是一个去均值的矩阵，即$\bar{\mu}<em>j = \frac{1}{N}\sum</em>{i=1}^{N}{X_{i,j}}  = 0$</li>
-<li>定义协方差矩阵 $\Sigma = \text{cov}(XX^T)$</li>
-</ol>
-<p><strong>然后计算$\alpha_1^T$</strong></p>
-<ol>
-<li>首先计算降维后的方差$\text{Var} [\alpha_1^TX] $</li>
-<li>然后给出约束$\alpha_1^T \alpha_1 =1$的条件下，最大化降维后的方差   </li>
-</ol>
-<p>$$\text{Var}[\alpha_1^TX] = \alpha_1^T~\text{cov}(XX^T)~\alpha_1$$</p>
-<p>我们知道如果要最大化这个方差，只要使得$\alpha_1^T$无限大即可。于是我们开始给出对$\alpha_1^T$的限制：$\alpha_1^T\alpha_1 = 1$。由拉格朗日乘子法可得：</p>
-<p>$$\text{arg} ~ \max \limits_{\alpha_1^T}~ \alpha_1^T\text{cov}(XX^T)\alpha_1 - \lambda (\alpha_1^T \alpha_1 -1)$$</p>
-<p>令：<br>$$<br>L(\alpha_1^T,\lambda) = \alpha_1^T\text{cov}(XX^T)\alpha_1 - \lambda (\alpha_1^T \alpha_1 -1)<br>$$</p>
-<p>对$\alpha_1^T$求导令其偏导为零可得：<br>$$<br>\nabla_{\alpha_1^T}~L(\alpha_1^T,\lambda) = \text{cov}(XX^T)\alpha_1 - \lambda \alpha_1 = 0<br>$$<br>上式我们发现：<br>$$<br>\Sigma\alpha_1 = \lambda\alpha_1<br>$$<br>从此式可知，我们用来降维的$\alpha_1^T$就是<strong>协方差</strong>矩阵$\Sigma$的特征向量$\alpha_1$的转置。<br>但是此时我们仍然无法确定到底哪个特征向量才是我们想要的   </p>
-<p>于是我们将上式左乘$\alpha_1^T$得：<br>$$<br>\alpha_1^T \text{cov}(XX^T) \alpha_1 - \lambda \alpha_1^T\alpha_1 = 0<br>$$<br>由于$\alpha_1^T\alpha_1 = 1$，因此：<br>$$\alpha_1^T\Sigma\alpha_1 - \lambda = 0    $$</p>
-<p>$$\lambda = \alpha_1\Sigma\alpha_1 = \text{Var}[\alpha_1^TX]$$<br>天作之合，我们发现如果要让降维后的那个向量方差最大，此时我们只要选取特征值$\lambda$对应的特征向量即可！</p>
-<p><strong>这只是一个向量而已</strong>，我们需要很多个$\alpha$来组成一个降维矩阵，那么此时$\alpha_2^T$又是怎样求得的呢？  </p>
-<p><strong>定义</strong></p>
-<ol>
-<li>由于$\Sigma$是协方差矩阵，所以它的特征向量有如下性质 $\alpha_2^T \alpha_1 =0$。  </li>
-</ol>
-<p>同样地，我们定义拉格朗日函数如下：<br>$$\text{arg} \max \limits_{\alpha_2^T} ~ \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 (\alpha_2^T \alpha_2-1) - \phi \alpha_2^T \alpha_1 $$<br>定义：<br>$$L(\alpha_2^T,\lambda_2,\phi) = \alpha_2^T \text{cov}(XX^T) \alpha_2 - \lambda_2 (\alpha_2^T \alpha_2-1) - \phi \alpha_2^T \alpha_1 $$</p>
-<p>对$\alpha_2^T$求偏导并令其为0可得：<br>$$\nabla_{\alpha_2^T} ~ L(\alpha_2^T,\lambda_2,\phi) = \text{cov}(XX^T)\alpha_2 - \lambda_2\alpha_2 - \phi \alpha_1= 0 $$<br>$\alpha_1^T$得：<br>$$\alpha_1^T\text{cov}(XX^T)\alpha_2 - 0 - \phi = 0$$</p>
+        <p>终于赢来了博士开学。硕博连读确定后的第9个月，我迎来了新的生活。这9个月，生活起起伏伏。</p>
+<h3 id="搞科研"><a href="#搞科研" class="headerlink" title="搞科研"></a>搞科研</h3><p>可以说，在硕博连读之前，我真的还没有真正地入门科研。</p>
+<p>之所以这么说，是因为我研一积累得太少，以至于未曾体会真正科研的乐趣与痛苦。</p>
+<p>当对一件事物的主观感受不是发自你内心时，说明你的生活并不是你的。</p>
+<p>当别人告诉你，科研是多么地有趣。你进来时才发现大家都在水论文。</p>
+<h3 id="毕业"><a href="#毕业" class="headerlink" title="毕业"></a>毕业</h3><p>前段时间韦德准备退役了，发布了一个直击人泪点的视频。当你进来联盟时，你认为离你退役那天还远着。</p>
+<p>联盟里的老家伙告诉你，在联盟打球，时间过得很快的。</p>
+<p>是啊。相信，博士3年时间过得更快吧？</p>
+<p>oh？3年？最好是3年吧。</p>
+<p>就好像硕博连读的面试结束时，一直到今天。我才发现，自己一无所获。</p>
+<p>9个月的时间，就是接近三分之一的博士生涯了。</p>
+<p>如果算上去这9个月，那么我的博士生涯已经开始了10个月了。</p>
+<p>想想已经开学10个月了，心理真的不太好受。</p>
 
       
     </div>
@@ -507,7 +478,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://ynqiu.top/2018/03/12/PCA/" title="PCA主成分分析-最大方差和最小二乘观点">https://ynqiu.top/2018/03/12/PCA/</a>
+    <a href="https://ynqiu.top/2018/09/27/daily-in-september/" title="博士的第一个月">https://ynqiu.top/2018/09/27/daily-in-september/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -522,7 +493,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/月计/" rel="tag"># 月计</a>
+          
+            <a href="/tags/心路历程/" rel="tag"># 心路历程</a>
           
         </div>
       
@@ -535,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/09/ubuntu-ftp-server-setup/" rel="next" title="Ubuntu16的FTP服务器创建">
-                <i class="fa fa-chevron-left"></i> Ubuntu16的FTP服务器创建
+              <a href="/2018/08/29/L1-algorithm/" rel="next" title="最优化中L1范数的最小化与最大化问题">
+                <i class="fa fa-chevron-left"></i> 最优化中L1范数的最小化与最大化问题
               </a>
             
           </div>
@@ -544,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/13/understanding-cca/" rel="prev" title="CCA算法-原理-python代码分析">
-                CCA算法-原理-python代码分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -712,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小二乘方法角度"><span class="nav-number">1.</span> <span class="nav-text">最小二乘方法角度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息论的角度"><span class="nav-number">2.</span> <span class="nav-text">信息论的角度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#搞科研"><span class="nav-number">1.</span> <span class="nav-text">搞科研</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#毕业"><span class="nav-number">2.</span> <span class="nav-text">毕业</span></a></li></ol></div>
             
 
           </div>
@@ -855,9 +824,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://ynqiu.top/2018/03/12/PCA/';
-          this.page.identifier = '2018/03/12/PCA/';
-          this.page.title = 'PCA主成分分析-最大方差和最小二乘观点';
+          this.page.url = 'https://ynqiu.top/2018/09/27/daily-in-september/';
+          this.page.identifier = '2018/09/27/daily-in-september/';
+          this.page.title = '博士的第一个月';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ynqiu.disqus.com/embed.js';
